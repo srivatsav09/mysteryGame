@@ -47,7 +47,22 @@ Clearly list them as: 1., 2., 3. Don't skip this."""}
     st.session_state.game_over = False
 
 if not st.session_state.choice_made and not st.session_state.game_over:
-    choice = st.radio("What do you want to do?", st.session_state.choices)
+    # choice = st.radio("What do you want to do?", st.session_state.choices)
+    choices = st.session_state.choices
+    cols = st.columns(len(choices))
+
+    for i, choice in enumerate(choices):
+        with cols[i]:
+            st.markdown(f"""
+            <div style="border: 2px solid #ccc; border-radius: 15px; padding: 15px; background-color: #f0f8ff; text-align: center; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+                <h4>{choice}</h4>
+            </div>
+            """, unsafe_allow_html=True)
+
+            if st.button(f"Select: {choice}", key=choice):
+                st.session_state.selected_choice = choice
+                st.session_state.choice_made = True
+                #st.rerun()
     if st.button("Confirm Choice"):
         # Add user choice to conversation
         st.session_state.messages.append({"role": "user", "content": f"The player chose: {choice}. What happens next?"})
