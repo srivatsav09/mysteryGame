@@ -1,0 +1,7 @@
+[theme]
+base="dark"
+primaryColor="#ff4d4d"  # Blood red for buttons and highlights
+backgroundColor="#121212"  # Deep dark background
+secondaryBackgroundColor="#1e1e1e"  # Slightly lighter for cards/panels
+textColor="#e0e0e0"  # Pale gray text
+font="monospace"

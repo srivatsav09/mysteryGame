@@ -1,0 +1,12 @@
+# Core dependencies
+streamlit
+langchain-groq
+python-dotenv
+
+# Testing
+pytest
+pytest-cov
+
+# Development
+black
+flake8
